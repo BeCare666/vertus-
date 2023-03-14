@@ -1038,16 +1038,18 @@
                 data: "",
                 sandbox: "true",
                 theme: "blue",
-                key: "75a3f600bb5411edac8b1551dc4d0ac1",
+                key: "700e35d0c23811ed9b847906fa4174c5",
               });
-              //Prix du paiement dans le tableau TableToTakePricePaiment
+              //Prix du paiement dans le tableau TableToTakePricePaiment 
               var vaToTakeprice = snapshot.val().PrixPromo
               var pourenta = 0.019
-              var sommePryid = pourenta * vaToTakeprice
+              var sommePryid = (pourenta * vaToTakeprice)
               var totasomme = (+sommePryid + +vaToTakeprice)
               //la reponse du payement kkiapay
+              var sommePryidyi = (lastelement * totasomme)
+               //console.log(sommePryidyi)
               addSuccessListener((response) => {
-                console.log(response);
+                 //console.log(response);
                 var trans = response.transactionId;
                 //  console.log(trans);
                 if (trans) {
@@ -1060,7 +1062,7 @@
 
                   set(ref(db, "Montant/" + idproduct), {
                     Idproduct: idproducty,
-                    NomDePrix: totasomme,
+                    NomDePrix: sommePryidyi,
                     Trans: trans,
                   })
                     .then(() => {
