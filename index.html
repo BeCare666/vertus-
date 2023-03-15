@@ -621,7 +621,7 @@
                         <li id="idmydatail2"></li>
                         <li id="idmydatail3"></li>
                         <li id="idmydatail4"></a></li>
-                        <label for="recipient-name" class="col-form-label">Quantité:</label>
+                       <!----  <label for="recipient-name" class="col-form-label">Quantité:</label>
                         <select id="exampleFormControlSelect1" class="form-control" style="height: 50px;">
                           <option value="1" selected class="quantityVal">1</option>
                           <option value="2" class="quantityVal">2</option>
@@ -638,8 +638,9 @@
                           <button class="btn btn-danger " id="myClasidpayerq">validez la Quantité</button> &nbsp; <div>
                           </div>
                           <strong id="unpcreer"></strong>
-                        </div><br><br>
-                        <li id="idmydatail6" class="myClasidpayer"></li>
+                        </div><br><br>-->
+                        <a href="https://wa.me/message/SDLTBZRZYFOGK1"><button class="btn btn-danger"><i class="bi bi-whatsapp"></i> Contactez-nous</button></a>
+                         <!----<li id="idmydatail6" class="myClasidpayer"></li>-->
                       </ul>
                     </div>
                     <div class="portfolio-description">
@@ -672,10 +673,12 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
-          <!-- Toogle to second dialog -->
+          <!-- Toogle to second dialog 
           <button class="btn btn-danger myClasidpayer" data-bs-dismiss="modal" id="idpayer"><i
               class="bi bi-credit-card-fill"></i>
-            Payer</button><br>
+            Payer</button><br>-->
+          <button class="btn btn-danger" id="idpayer">
+            Aller dans les details 👇👇👇</button><br>
           <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-dismiss="modal"
             id="iddetails"><i class="bi bi-eye-fill"></i> Details</button>
         </div>
@@ -918,10 +921,10 @@
 
     //function to get all products in realTime
     function getAllDataRealtimePro() {
-      document.getElementById('myClasidpayerq').style.display = 'none'
-      document.getElementById('exampleFormControlSelect1').addEventListener('click', function () {
-        document.getElementById('myClasidpayerq').style.display = 'block'
-      })
+      //document.getElementById('myClasidpayerq').style.display = 'none'
+      //document.getElementById('exampleFormControlSelect1').addEventListener('click', function () {
+      //  document.getElementById('myClasidpayerq').style.display = 'block'
+    //  })
       var myalldatas = [];
       const dbref = ref(db, "Thedatas/");
       onValue(dbref, (snopshot) => {
@@ -973,7 +976,7 @@
     //function to get detail product
 
     var Iddetails = document.getElementById('iddetails');
-    var Idpayer = document.getElementById('idpayer');
+    //var Idpayer = document.getElementById('idpayer');
     Iddetails.addEventListener('click', function () {
       var takepriceTable = []
       const lastA = tabletesterSiLa.slice(-1).pop();
@@ -990,14 +993,14 @@
             Idmydatail4.innerHTML = `<p><img src="assets/img/deta.svg" alt="">&nbsp;&nbsp;<strong>Prix Promo</strong>: ${snapshot.val().PrixPromo} FCFA</p>`
             Idmydatail5.innerHTML = `<p>${snapshot.val().Genboxtextarea}</p>`
             Idmydatailimg.innerHTML = `<img src="${snapshot.val().RollNo}" class="img-fluid" alt="image" style="height: 72vh; width: 100%; position: relative; z-index: 1;">`
-            Idmydatail6.innerHTML = `<button class="btn btn-danger"><i class="bi bi-credit-card-fill"></i>  Payer</button>`
+            //Idmydatail6.innerHTML = `<button class="btn btn-danger"><i class="bi bi-credit-card-fill"></i>  Payer</button>`
 
           } else {
             alert("no data");
           }
         })
         .catch((error) => {
-          alert("il y a une ERROR " + error);
+        alert("il y a une ERROR " + error);
         });
 
     })
@@ -1016,7 +1019,8 @@
     //funcion to pay for kkiapay
     //Table to take price paiemen
     var exampleFormControltable = []
-    document.getElementById('myClasidpayerq').addEventListener('click', function () {
+  {/*
+      document.getElementById('myClasidpayerq').addEventListener('click', function () {
       var exampleFormControlSelect1v = document.getElementById('exampleFormControlSelect1').value
       exampleFormControltable.push(exampleFormControlSelect1v)
       document.getElementById('unpcreer').innerHTML = `Quantité validée`
@@ -1024,14 +1028,14 @@
         document.getElementById('unpcreer').style.display = 'none'
       }, 1000)
 
-    })
-    var MyClasidpayer = document.querySelectorAll('.myClasidpayer');
-    var exampleFormControlSelect1v = document.getElementById('exampleFormControlSelect1').value
+    })*/}
+    {/*var MyClasidpayer = document.querySelectorAll('.myClasidpayer');
+    //var exampleFormControlSelect1v = document.getElementById('exampleFormControlSelect1').value
     MyClasidpayer.forEach((x) => {
       x.addEventListener('click', function () {
         const lastkkiapay = tabletesterSiLa.slice(-1).pop();
         const dbref = ref(db);
-        console.log(exampleFormControlSelect1v)
+        //console.log(exampleFormControlSelect1v)
         get(child(dbref, "Thedatas/" + lastkkiapay))
           .then((snapshot) => {
             var lastelement = exampleFormControltable[exampleFormControltable.length - 1]
@@ -1087,7 +1091,7 @@
           });
       })
     })
-
+*/}
   </script>
   <script src="https://cdn.kkiapay.me/k.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
